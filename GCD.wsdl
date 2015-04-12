@@ -1,0 +1,88 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://com/sample/webservices/gcdservice" xmlns:sch1="http://webservices.sample.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com/sample/webservices/gcdservice" targetNamespace="http://com/sample/webservices/gcdservice">  
+       <wsdl:types>  
+            <xsd:schema xmlns="http://com/sample/webservices/gcdservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://com/sample/webservices/gcdservice">  
+                 <xsd:import namespace="http://webservices.sample.com"/>  
+                 <xsd:element name="GCDResponse">  
+                      <xsd:complexType>  
+                           <xsd:sequence>  
+                                <xsd:element name="gcd" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+                           </xsd:sequence>  
+                      </xsd:complexType>  
+                 </xsd:element>
+                 <xsd:element name="GCDListResponse">  
+                      <xsd:complexType>  
+                           <xsd:sequence>  
+                                <xsd:element name="gcdList" type="xsd:integer" minOccurs="1" maxOccurs="unbounded"/>
+                           </xsd:sequence>  
+                      </xsd:complexType>  
+                 </xsd:element>  
+                 <xsd:element name="GCDSumResponse">  
+                      <xsd:complexType>  
+                           <xsd:sequence>  
+                                <xsd:element name="gcdSum" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+                           </xsd:sequence>  
+                      </xsd:complexType>  
+                 </xsd:element>  
+            </xsd:schema>  
+       </wsdl:types>  
+       <wsdl:message name="GCDResponse">  
+            <wsdl:part element="tns:GCDResponse" name="GCDResponse"/>  
+       </wsdl:message> 
+        <wsdl:message name="GCDListResponse">  
+            <wsdl:part element="tns:GCDListResponse" name="GCDListResponse"/>  
+       </wsdl:message>  
+	   <wsdl:message name="GCDSumResponse">  
+            <wsdl:part element="tns:GCDSumResponse" name="GCDSumResponse"/>  
+       </wsdl:message>  
+      
+
+       <wsdl:portType name="GCDService">  
+			<wsdl:operation name="gcd">  
+                 <wsdl:output message="tns:GCDResponse" name="GCDResponse"/>  
+            </wsdl:operation>
+            <wsdl:operation name="gcdList">  
+                 <wsdl:output message="tns:GCDListResponse" name="GCDListResponse"/>  
+           </wsdl:operation>
+		   <wsdl:operation name="gcdSum">  
+                 <wsdl:output message="tns:GCDSumResponse" name="GCDSumResponse"/>  
+           </wsdl:operation>    
+       </wsdl:portType> 
+ 
+       <wsdl:binding name="GCDServiceSoap11" type="tns:GCDService">  
+            <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>  
+            <wsdl:operation name="gcd">  
+                 <soap:operation soapAction=""/>  
+                 <wsdl:input name="">  
+                      <soap:body use="literal"/>  
+                 </wsdl:input>  
+                 <wsdl:output name="GCDResponse">  
+                      <soap:body use="literal"/>  
+                 </wsdl:output>  
+            </wsdl:operation> 
+            <wsdl:operation name="GCDList">  
+                 <soap:operation soapAction=""/>  
+                 <wsdl:input name="">  
+                      <soap:body use="literal"/>  
+                 </wsdl:input>  
+                 <wsdl:output name="GCDListResponse">  
+                      <soap:body use="literal"/>  
+                 </wsdl:output>  
+            </wsdl:operation>  
+            <wsdl:operation name="GCDSum">  
+                 <soap:operation soapAction=""/>  
+                 <wsdl:input name="">  
+                      <soap:body use="literal"/>  
+                 </wsdl:input>  
+                 <wsdl:output name="GCDSumResponse">  
+                      <soap:body use="literal"/>  
+                 </wsdl:output>  
+            </wsdl:operation>   
+            
+       </wsdl:binding> 
+        
+       <wsdl:service name="GCDService">  
+            <wsdl:port binding="tns:GCDServiceSoap11" name="GCDServiceSoap11">  
+                 <soap:address location="http://localhost:8080/spring-webservices-sample/endpoints"/>  
+            </wsdl:port>  
+       </wsdl:service>  
+  </wsdl:definitions> 

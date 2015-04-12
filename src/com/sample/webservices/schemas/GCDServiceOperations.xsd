@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://com/samples/webservices/gcdservice" xmlns:gcd="http://webservices.samples.com"
+	targetNamespace="http://com/samples/webservices/gcdservice"
+	elementFormDefault="qualified">
+
+	<xsd:element name="GCDResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="gcd" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="GCDListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="gcdList" type="xsd:integer" minOccurs="1" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="GCDSumResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="gcdSum" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>  
